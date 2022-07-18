@@ -1,0 +1,76 @@
+.Counter {
+  height: 100%;
+  width: 100%;
+}
+
+.SmallButtons {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  position: static;
+}
+
+.CounterHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  line-height: 0%;
+  align-items: center;
+}
+
+.AddButton {
+    width: 250px;
+    height: 250px;
+    font-size: 20px;
+    padding: 100px;
+    border-radius: 100%;
+    line-height: 0%;
+    text-align: center;
+    margin: auto;
+  }
+
+.SubButton {
+    width: 75px;
+    height: 75px;
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 100%;
+    line-height: 0%;
+    text-align: center;
+    margin: auto;
+}
+
+.ProfileButton {
+    width: 75px;
+    height: 75px;
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 100%;
+    line-height: 0%;
+    text-align: center;
+}
+
+.SocialButton {
+  position: relative;
+  width: 75px;
+  height: 75px;
+  font-size: 20px;
+  padding: 20px;
+  border-radius: 100%;
+  line-height: 0%;
+  text-align: center;
+  margin-top: 30px;
+  
+}
+
+.SettingButton {
+  width: 75px;
+  height: 75px;
+  font-size: 20px;
+  padding: 20px;
+  border-radius: 100%;
+  line-height: 0%;
+  text-align: center;
+  
+}
+
