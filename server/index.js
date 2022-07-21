@@ -21,8 +21,18 @@ io.on("connection", (socket) => {
 
     socket.on("newUser", socket => {
         console.log(`Hi, I'm User${socket.id}`);
-    })
+    });
+
+    socket.on("userJoin", (worker) => {
+        console.log(worker);
+    }) 
+    
+    // socket.on('disconnect', () => {
+    //     console.log('user disconnected');
+    //   });
 })
+
+
 
 
 

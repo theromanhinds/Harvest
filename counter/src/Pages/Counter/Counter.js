@@ -7,6 +7,7 @@ import { getDatabase, ref, set, onValue } from 'firebase/database';
 // import { child, get } from 'firebase/database';
 //imports firebase database functions from installed dependencies
 
+import Header from '../Components/Header';
 import AddButton from './AddButton';
 import SubButton from './SubButton';
 import CounterHeader from './CounterHeader';
@@ -76,6 +77,7 @@ function Counter() {
         count: count + 1,
       });
     }
+    
     function updateDatabaseSub() {
       const db = getDatabase();
       set(ref(db, 'values'), {
@@ -97,6 +99,10 @@ function Counter() {
     // }
 
   return (
+    <div className="App">
+      <div className='Container'>
+    <Header/>
+    
     <div className="Counter">
         <CounterHeader/>
         <AddButton cooldown={cooldown} count={count} increment={incrementCount}/>
@@ -106,6 +112,8 @@ function Counter() {
         <SettingButton/>
         {/* <button onClick={getData}>Update</button> */}
         </div>
+        </div>
+    </div>
     </div>
   )
 }
