@@ -53,7 +53,7 @@ function Counter() {
       }, 2000);
       setCooldown(true);
       return () => clearTimeout(timer);
-    }, [count]);
+    }, [count, roomId]);
     //useEffect hook that controls the button cooldown
 
 
