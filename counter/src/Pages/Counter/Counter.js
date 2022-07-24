@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 //imports two react hooks
 
+import { socket } from '../../App';
+
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, onValue } from 'firebase/database';
 // import { child, get } from 'firebase/database';
@@ -15,7 +17,7 @@ import SocialButton from './SocialButton';
 import SettingButton from './SettingButton';
 //imports external button components that get rendered to page
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyBz3q9s-RscOFDtHXEaN1ZN5oUo-v3LnhM",
   authDomain: "counter-4b0e9.firebaseapp.com",
   databaseURL: "https://counter-4b0e9-default-rtdb.firebaseio.com",
@@ -35,18 +37,15 @@ function Counter() {
 
     const [count, setCount] = useState(0);
     const [cooldown, setCooldown] = useState(false);
+    const [roomId, setRoomId] = useState("default");
     
     //useState hooks that control the count and button cooldown
 
+  
     useEffect(() => {
-
-      const db = getDatabase();
-      const countRef = ref(db, 'values');
-      onValue(countRef, (snapshot) => {
-      const data = snapshot.val();
-      setCount(data.count);
-      });
-
+      console.log("effecting");
+      getData(roomId);
+      
       const timer = setTimeout(() => {
         //any functions inside setTimeout function are called after timer is cleared
         //integer in second paramter determines timer length in milliseconds
@@ -60,12 +59,10 @@ function Counter() {
 
     function incrementCount() {
       setCount(prevCount => prevCount + 1);
-      //console.log(count);
       updateDatabaseAdd();
     } 
     function decrementCount() {
       setCount(prevCount => prevCount - 1);
-      //console.log(count);
       updateDatabaseSub();
     } 
     //incremement and decrement count state using state hooks 
@@ -73,21 +70,39 @@ function Counter() {
 
     function updateDatabaseAdd() {
       const db = getDatabase();
-      set(ref(db, 'values'), {
+      set(ref(db, `${roomId}`), {
         count: count + 1,
       });
     }
     
     function updateDatabaseSub() {
       const db = getDatabase();
-      set(ref(db, 'values'), {
+      set(ref(db, `${roomId}`), {
         count: count - 1,
       });
     }
 
+    socket.on("enteredRoom", room => {
+      // console.log("I entered room " + room);
+      setRoomId(room);
+      getData(room);
+    })
+
+    function getData(roomId) {
+      const db = getDatabase();
+      console.log(roomId);
+  
+        const countRef = ref(db, `${roomId}`);
+        onValue(countRef, (snapshot) => {
+          const data = snapshot.val();
+          setCount(data.count);
+        });
+        
+    }
+
     // function getData() {
     //   const dbRef = ref(getDatabase());
-    //   get(child(dbRef, `values`)).then((snapshot) => {
+    //   get(child(dbRef, `counters`)).then((snapshot) => {
     //     if (snapshot.exists()) {
     //       setCount(snapshot.val().count);
     //     } else {
@@ -98,6 +113,14 @@ function Counter() {
     //   });
     // }
 
+    // socket.on("checkRoom", connections => {
+    //   console.log("checking room");
+    //   for (let i = 0; i < connections.length; i++) {
+    //     console.log(connections[i])
+    //   }
+    // })
+
+    
   return (
     <div className="App">
       <div className='Container'>
