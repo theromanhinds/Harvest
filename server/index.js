@@ -11,7 +11,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
         origin: "https://mighty-escarpment-43370.herokuapp.com/",
-        'Access-Control-Allow-Origin': "https://mighty-escarpment-43370.herokuapp.com/",
+        'Access-Control-Allow-Origin': '*',
         methods: ["GET", "POST"],
     },
 });
