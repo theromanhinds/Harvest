@@ -13,7 +13,8 @@ function SubButton(props) {
         disabled = {props.cooldown}
         className='SubButton'
         onClick={decrementCount}>
-            Subtract
+            
+        <i class="fa-solid fa-minus"></i>
         </button>
 
     </div>

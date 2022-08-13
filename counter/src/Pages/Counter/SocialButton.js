@@ -4,8 +4,9 @@ function SocialButton() {
   return (
     <div>        
         <button
-        className='SocialButton'>
-        Social
+        className='SocialButton' disabled='true'>
+        
+        <i class="fa-solid fa-user-group"></i>
         </button>
     </div>
   )

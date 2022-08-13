@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import '../../App.css';
+
 //imports two react hooks
 
 import { socket } from '../../App';
@@ -9,7 +11,6 @@ import { getDatabase, ref, set, onValue } from 'firebase/database';
 // import { child, get } from 'firebase/database';
 //imports firebase database functions from installed dependencies
 
-import Header from '../Components/Header';
 import AddButton from './AddButton';
 import SubButton from './SubButton';
 import CounterHeader from './CounterHeader';
@@ -123,17 +124,25 @@ function Counter() {
     
   return (
     <div className="App">
+
+    <img className='Background' alt='background' src='/images/background.jpg'/>
+
       <div className='Container'>
-    <Header/>
-    
-    <div className="Counter">
-        <CounterHeader/>
+
+      <div className='Blur'/>
+      <CounterHeader/>
+
+      <div className="Counter">
+        
         <AddButton cooldown={cooldown} count={count} increment={incrementCount}/>
-        <div className='SmallButtons'>
+        <div className='SmallButtonDiv'>
         <SubButton cooldown={cooldown} count={count} decrement={decrementCount}/>
+        
         <SocialButton/>
         <SettingButton/>
+
         {/* <button onClick={getData}>Update</button> */}
+
         </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Header from '../Components/Header'
+import '../../App.css';
 
 
 import { getDatabase, ref, set, get, child } from 'firebase/database';
@@ -58,7 +59,7 @@ function Home(props) {
             host: worker.host
           });
         } else {
-          alert("Room does not exist.");
+          alert(`Sorry! Room [${worker.room}] does not exist. Try again.`);
         }
       }).catch((error) => {
         console.error(error);
@@ -72,29 +73,46 @@ function Home(props) {
     })
   }
 
+  const aboutHarvest = (event) => {
+    alert("Welcome to Harvest!");
+    alert("Harvest is a tool to track the number of people you share your faith with." +
+    " Either create a room or join your friends by entering their room code below!");
+  }
+
   
   return (
     <div className="App">
+      <img className='Background' alt='background' src='/images/background.jpg'/>
+
       <div className='Container'>
-      <Header/>
-      <div className='RoomForm'>
-      {/* <Link to={`/counter/${worker.room}`}> */}
-      <button  onClick={createRoom}>Create Room</button>
-        {/*</Link> */}
-      <form>
-        <input type="text" 
-          id="room" 
-          room={worker.room} 
-          onChange={handleGameIdChange} 
-          autoComplete="off"
-          // maxLength="9" minLength="9"
-          />
-          {/* <Link to={`/counter/${worker.room}`}> */}
         
-          {/* </Link> */}
-      </form>
-      <button onClick={joinRoom} >Join Room</button>
-      </div>
+        <div className='Blur'/>
+
+        <Header/>
+
+        <button onClick={aboutHarvest} className='About'>?</button>
+
+        <div className='RoomFormDiv'>
+          
+          <button className='RoomButton' onClick={createRoom}>Create Room</button>
+
+          <form >
+            <input className='RoomForm' 
+              type="text" 
+              id="room"
+              room={worker.room} 
+              onChange={handleGameIdChange} 
+              autoComplete="off"/>
+          </form>
+          
+          <button className='RoomButton' onClick={joinRoom} >Join Room</button>
+
+        </div>
+
+        <div className='Footer'>
+          <h4>938 Seeds planted</h4>
+          <h4><a rel="noreferrer" href='http://www.romanhinds.com' target="_blank">Built by: Roman Hinds</a></h4>
+        </div>
       </div>
     </div>
   )

@@ -1,44 +1,46 @@
 .Counter {
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.SmallButtons {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  position: static;
-}
+
 
 .CounterHeader {
-  width: 100%;
+  position: absolute;
+  top: 0;
+  width: 98%;
   display: flex;
   justify-content: space-between;
   line-height: 0%;
   align-items: center;
+
+  margin: 7.5px;
 }
 
 .AddButton {
     width: 250px;
     height: 250px;
-    font-size: 20px;
+    font-size: 40px;
     padding: 100px;
     border-radius: 100%;
-    line-height: 0%;
-    text-align: center;
-    margin: auto;
+
+    background-color: rgba(255, 255, 255, .10);
+    border-width: 5px;
+    border-color: rgb(143, 221, 143);
+    color: white;
   }
 
-.SubButton {
-    width: 75px;
-    height: 75px;
-    font-size: 20px;
-    padding: 20px;
-    border-radius: 100%;
-    line-height: 0%;
-    text-align: center;
-    margin: auto;
-}
+  .AddButton:hover {
+    background-color: rgba(143, 221, 143, .40);
+  }
+  .AddButton:disabled {
+    border-color: rgb(255, 255, 255);
+  }
+
 
 .ProfileButton {
     width: 75px;
@@ -48,9 +50,67 @@
     border-radius: 100%;
     line-height: 0%;
     text-align: center;
+
+  background-color: rgba(255, 255, 255, .10);
+  border-width: 5px;
+  border-color: rgb(143, 221, 143);
+  color: rgb(19, 56, 34);
+
+}
+
+.SmallButtonDiv {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  position: static;
+  
+}
+
+.SubButton {
+  background-color: rgba(255, 255, 255, .10);
+  border-width: 5px;
+  border-color: rgb(143, 221, 143);
+  color: white;
+
+  width: 75px;
+  height: 75px;
+  font-size: 20px;
+  padding: 20px;
+  border-radius: 100%;
+  line-height: 0%;
+  text-align: center;
+  margin: auto;
+}
+.SubButton:hover {
+  background-color: rgba(143, 221, 143, .40);
+}
+.SubButton:disabled {
+  border-color: rgb(255, 255, 255);
+}
+
+
+.SettingsButton {
+  background-color: rgba(255, 255, 255, .10);
+  border-width: 5px;
+  border-color: rgb(143, 221, 143);
+  color: rgb(19, 56, 34);
+
+  width: 75px;
+  height: 75px;
+  font-size: 20px;
+  padding: 20px;
+  border-radius: 100%;
+  line-height: 0%;
+  text-align: center;
+  margin: auto;
 }
 
 .SocialButton {
+  background-color: rgba(255, 255, 255, .10);
+  border-width: 5px;
+  border-color: rgb(143, 221, 143);
+  color: rgb(19, 56, 34);
+
   position: relative;
   width: 75px;
   height: 75px;
@@ -63,14 +123,16 @@
   
 }
 
-.SettingButton {
+.NavHome {
+  position: relative;
+  
+  background-color: transparent;
+  border: none;
   width: 75px;
   height: 75px;
-  font-size: 20px;
-  padding: 20px;
   border-radius: 100%;
-  line-height: 0%;
-  text-align: center;
-  
+}
+.NavHome:hover {
+  background-color: rgba(143, 221, 143, .40);
 }
 

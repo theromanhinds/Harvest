@@ -1,15 +1,16 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import './Header.css';
 
 function Header() {
+  
   return (
+
     <div className='Header'>
-        <h6>2945 seeds planted</h6>
-        <Link to="/">
-          <h1 className='Title'>HARVEST</h1>
-        </Link>
-        <h6>built by: Roman Hinds</h6>
-        </div>
+          <img style={{ 
+            width: '45vw', 
+            padding: '10px'
+            }} alt='harvestheader' src='/images/HarvestHeader.png'/>
+    </div>
 
   )
 }

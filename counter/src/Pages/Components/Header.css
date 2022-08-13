@@ -1,0 +1,11 @@
+.Header {
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+    max-height: 33vh;
+}
+
+.Title {
+    text-decoration: none;
+  
+  }

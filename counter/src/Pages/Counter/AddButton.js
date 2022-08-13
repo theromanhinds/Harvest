@@ -13,8 +13,9 @@ function AddButton(props) {
         disabled = {props.cooldown}
         className='AddButton'
         onClick={incrementCount}>
-            {props.count}/100
-            <h4>Add</h4>
+            {props.count}
+
+        <i style={{ position: "relative", bottom: "-30px"}} class="fa-solid fa-plus"></i>
         </button>
 
     </div>
